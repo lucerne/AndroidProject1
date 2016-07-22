@@ -1,6 +1,7 @@
 package com.example.lucerne.flickster.adapters;
 
 import android.content.Context;
+import android.content.res.Configuration;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -51,10 +52,19 @@ public class MovieArrayAdapter extends ArrayAdapter<Movie> {
         }
 
         // Populate the data into the template view using the data object
-        viewHolder.image.setImageResource(0);
         viewHolder.title.setText(movie.getOriginalTitle());
         viewHolder.overview.setText(movie.getOverview());
-        Picasso.with(getContext()).load(movie.getPosterPath()).into(viewHolder.image);
+        // clear out image from convertView
+        viewHolder.image.setImageResource(0);
+
+        int orientation = getContext().getResources().getConfiguration().orientation;
+        if (orientation == Configuration.ORIENTATION_PORTRAIT) {
+            Picasso.with(getContext()).load(movie.getPosterPath()).into(viewHolder.image);
+        } else if (orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            Picasso.with(getContext()).load(movie.getBackdropPath()).into(viewHolder.image);
+        }
+
+//        Picasso.with(getContext()).load(movie.getPosterPath()).into(viewHolder.image);
 
 //        ImageView ivImage = (ImageView) convertView.findViewById(R.id.ivMovieImage);
 //        ivImage.setImageResource(0);
