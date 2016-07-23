@@ -11,10 +11,16 @@ import java.util.ArrayList;
  */
 public class Movie {
 
+    public enum popularityValues {
+        NOTPOPULAR, POPULAR
+    }
+
     String posterPath;
     String originalTitle;
     String overview;
     String backdropPath;
+    // rating of more than 5 is popular
+    popularityValues popularity;
 
     public String getOverview() {
         return overview;
@@ -32,12 +38,24 @@ public class Movie {
         return String.format("https://image.tmdb.org/t/p/w342/%s", backdropPath);
     }
 
+    public popularityValues getPopularity() {
+        return popularity;
+    }
+
 
     public Movie(JSONObject jsonObject) throws JSONException{
         this.posterPath = jsonObject.getString("poster_path");
         this.originalTitle = jsonObject.getString("original_title");
         this.overview = jsonObject.getString("overview");
         this.backdropPath = jsonObject.getString("backdrop_path");
+
+        float p = Float.parseFloat(jsonObject.getString("vote_average"));
+        if (p > 5){
+            this.popularity = popularityValues.POPULAR;
+        }
+        else{
+            this.popularity = popularityValues.NOTPOPULAR;
+        }
     }
 
     public static ArrayList<Movie> fromJSONArray(JSONArray array){
