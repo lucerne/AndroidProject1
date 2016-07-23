@@ -101,7 +101,27 @@ public class MovieArrayAdapter extends ArrayAdapter<Movie> {
             }
 
         } else if (orientation == Configuration.ORIENTATION_LANDSCAPE) {
-            Picasso.with(getContext()).load(movie.getBackdropPath()).into(viewHolder.image);
+//            Picasso.with(getContext()).load(movie.getBackdropPath()).into(viewHolder.image);
+            // popular movie backdrop in portrait mode
+            if (getItemViewType(position) == Movie.popularityValues.POPULAR.ordinal()){
+                Picasso.with(getContext()).load(movie.getPosterPath())
+//                        .fit()
+//                        .centerCrop()
+                        .placeholder(R.drawable.placeholder)
+                        .error(R.drawable.placeholder)
+                        .resize(0, 800)
+                        .into(viewHolder.image);
+
+            }
+            else {
+                Picasso.with(getContext()).load(movie.getBackdropPath())
+//                        .fit()
+//                        .centerCrop()
+                        .resize(0, 800)
+                        .placeholder(R.drawable.placeholder)
+                        .error(R.drawable.placeholder)
+                        .into(viewHolder.image);
+            }
         }
         return convertView;
     }

@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.Menu;
 import android.widget.ListView;
 
 import com.example.lucerne.flickster.adapters.MovieArrayAdapter;
@@ -31,6 +32,13 @@ public class MovieActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_movie);
 
+        // Find the toolbar view inside the activity layout
+//        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+
+        // Sets the Toolbar to act as the ActionBar for this Activity window.
+//        setSupportActionBar(toolbar);
+
+        // initiate adapter
         lvItems = (ListView) findViewById(R.id.lvMovies);
         movies = new ArrayList<>();
         movieAdapter = new MovieArrayAdapter(this, movies);
@@ -48,15 +56,26 @@ public class MovieActivity extends AppCompatActivity {
                 fetchTimelineAsync(0);
             }
         });
+
         // Configure the refreshing colors
         swipeContainer.setColorSchemeResources(android.R.color.holo_blue_bright,
                 android.R.color.holo_green_light,
                 android.R.color.holo_orange_light,
                 android.R.color.holo_red_light);
 
-
+        // initiate view
         fetchTimelineAsync(0);
     }
+
+
+    // Menu icons are inflated just as they were with actionbar
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
 
     public void fetchTimelineAsync(int page) {
         String url = "https://api.themoviedb.org/3/movie/now_playing?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed";
