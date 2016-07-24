@@ -19,7 +19,7 @@
 
     <TextView
         android:layout_width="250dp"
-        android:layout_height="250dp"
+        android:layout_height="63dp"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="The Legend of Tarzan"
         android:id="@+id/tvTitle"
@@ -35,18 +35,16 @@
         android:layout_height="250dp"
         android:text="Tarzan, having acclimated to life in London, is called back to his former home in the jungle to investigate the activities at a mining encampment."
         android:id="@+id/tvOverview"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="99dp"
-        android:layout_alignTop="@+id/tvTitle"
-        android:layout_alignBottom="@+id/ivMovieImage"
-        android:layout_toRightOf="@+id/ivMovieImage"
-        android:layout_toEndOf="@+id/ivMovieImage"
         android:paddingRight="20dp"
         android:paddingBottom="10dp"
         android:paddingTop="10dp"
         android:textColor="#ffffff"
-        android:textSize="10sp"/>
+        android:textSize="10sp"
+        android:layout_below="@+id/tvTitle"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_toRightOf="@+id/ivMovieImage"
+        android:layout_toEndOf="@+id/ivMovieImage"
+        android:layout_alignBottom="@+id/ivMovieImage" />
 
 </RelativeLayout>

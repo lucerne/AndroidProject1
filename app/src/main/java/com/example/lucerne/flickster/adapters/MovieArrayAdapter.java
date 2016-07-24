@@ -50,9 +50,13 @@ public class MovieArrayAdapter extends ArrayAdapter<Movie> {
     }
 
 
+
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         Movie movie = getItem(position);
+
+        // Get the data item type for this position
+        int type = getItemViewType(position);
 
         ViewHolder viewHolder; // view lookup cache stored in tag
 
@@ -61,19 +65,28 @@ public class MovieArrayAdapter extends ArrayAdapter<Movie> {
             viewHolder = new ViewHolder();
 
             LayoutInflater inflater = LayoutInflater.from(getContext());
-            convertView = inflater.inflate(R.layout.item_movie, parent, false);
+//            convertView = inflater.inflate(R.layout.poster_item_movie, parent, false);
+
+            if (type == Movie.popularityValues.NOTPOPULAR.ordinal()) {
+                convertView = inflater.inflate(R.layout.poster_item_movie, null);
+
+                viewHolder.title = (TextView) convertView.findViewById(R.id.tvTitle);
+                viewHolder.overview = (TextView) convertView.findViewById(R.id.tvOverview);
+            } else {
+                convertView = inflater.inflate(R.layout.backdrop_layout_movie, null);
+            }
 
             viewHolder.image = (ImageView) convertView.findViewById(R.id.ivMovieImage);
-            viewHolder.title = (TextView) convertView.findViewById(R.id.tvTitle);
-            viewHolder.overview = (TextView) convertView.findViewById(R.id.tvOverview);
             convertView.setTag(viewHolder);
         } else {
             viewHolder = (ViewHolder) convertView.getTag();
         }
 
-        // Populate the data into the template view using the data object
-        viewHolder.title.setText(movie.getOriginalTitle());
-        viewHolder.overview.setText(movie.getOverview());
+        if (type == Movie.popularityValues.NOTPOPULAR.ordinal()) {
+            // Populate the data into the template view using the data object
+            viewHolder.title.setText(movie.getOriginalTitle());
+            viewHolder.overview.setText(movie.getOverview());
+        }
 
         // clear out image from convertView
         viewHolder.image.setImageResource(0);
@@ -131,4 +144,6 @@ public class MovieArrayAdapter extends ArrayAdapter<Movie> {
         }
         return convertView;
     }
+
+
 }

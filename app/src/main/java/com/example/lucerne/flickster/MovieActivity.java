@@ -67,7 +67,7 @@ public class MovieActivity extends AppCompatActivity {
         // initiate view
         fetchTimelineAsync(0);
 
-        // launchTrailerActivity();
+//         launchTrailerActivity();
         // Launch detailed view on click
 //        launchDetailedActivity(movie);
     }
