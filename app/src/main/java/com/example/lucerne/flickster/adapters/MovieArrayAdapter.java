@@ -83,13 +83,13 @@ public class MovieArrayAdapter extends ArrayAdapter<Movie> {
         if (orientation == Configuration.ORIENTATION_PORTRAIT) {
 
             // popular movie backdrop in portrait mode
-            if (getItemViewType(position) == Movie.popularityValues.POPULAR.ordinal()){
+            if (getItemViewType(position) == Movie.popularityValues.NOTPOPULAR.ordinal()){
                 Picasso.with(getContext()).load(movie.getPosterPath())
 //                        .fit()
 //                        .centerCrop()
                         .placeholder(R.drawable.placeholder)
                         .error(R.drawable.placeholder)
-                        .resize(0, 800)
+                        .resize(0, 600)
                         .transform(new RoundedCornersTransformation(20, 10))
                         .into(viewHolder.image);
 
@@ -107,13 +107,13 @@ public class MovieArrayAdapter extends ArrayAdapter<Movie> {
         } else if (orientation == Configuration.ORIENTATION_LANDSCAPE) {
 //            Picasso.with(getContext()).load(movie.getBackdropPath()).into(viewHolder.image);
             // popular movie backdrop in portrait mode
-            if (getItemViewType(position) == Movie.popularityValues.POPULAR.ordinal()){
+            if (getItemViewType(position) == Movie.popularityValues.NOTPOPULAR.ordinal()){
                 Picasso.with(getContext()).load(movie.getPosterPath())
 //                        .fit()
 //                        .centerCrop()
                         .placeholder(R.drawable.placeholder)
                         .error(R.drawable.placeholder)
-                        .resize(0, 800)
+                        .resize(0, 600)
                         .transform(new RoundedCornersTransformation(20, 10))
                         .into(viewHolder.image);
 
