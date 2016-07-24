@@ -1,6 +1,141 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="#000000"
+    tools:context="com.example.lucerne.flickster.DetailedActivity">
 
-</LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:id="@+id/ivMovieImage"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        tools:src="@drawable/placeholder"
+        android:layout_margin="10dp" />
+
+
+    <TextView
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="The Legend of Tarzan"
+        android:id="@+id/tvTitle"
+        android:textColor="#ffffff"
+        android:textSize="15sp"
+        android:layout_below="@+id/ivMovieImage"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="80dp"
+        android:layout_height="15dp"
+        android:text="Release Date:"
+        android:id="@+id/ReleaseDate"
+        android:textColor="#ffffff"
+        android:textSize="10sp"
+        android:layout_below="@+id/tvTitle"
+        android:layout_alignLeft="@+id/tvTitle"
+        android:layout_alignStart="@+id/tvTitle" />
+
+    <TextView
+        android:layout_width="50dp"
+        android:layout_height="15dp"
+        android:id="@+id/tvReleaseDate"
+        android:textColor="#ffffff"
+        android:textSize="10sp"
+        android:layout_below="@+id/tvTitle"
+        android:layout_toRightOf="@+id/ReleaseDate"
+        android:layout_toEndOf="@+id/ReleaseDate" />
+
+    <TextView
+        android:layout_width="30dp"
+        android:layout_height="15dp"
+        android:text="Ratings"
+        android:id="@+id/Ratings"
+        android:textColor="#ffffff"
+        android:textSize="8sp"
+        android:layout_below="@+id/ReleaseDate"
+        android:layout_alignLeft="@+id/tvTitle"
+        android:layout_alignStart="@+id/tvTitle" />
+
+    <TextView
+        android:layout_width="30dp"
+        android:layout_height="15dp"
+        android:id="@+id/tvVoteCount"
+        android:textColor="#ffffff"
+        android:textSize="8sp"
+        android:layout_below="@+id/ReleaseDate"
+        android:layout_toRightOf="@+id/Ratings"
+        android:layout_toEndOf="@+id/Ratings" />
+
+
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:id="@+id/ivStarImage1"
+        tools:src="@drawable/yellowstarempty"
+        android:layout_below="@+id/Ratings"
+        android:layout_alignLeft="@+id/tvTitle"
+        android:layout_alignStart="@+id/tvTitle" />
+
+
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:id="@+id/ivStarImage2"
+        tools:src="@drawable/yellowstarempty"
+        android:layout_below="@+id/Ratings"
+        android:layout_toRightOf="@+id/ivStarImage1"
+        android:layout_toEndOf="@+id/ivStarImage1" />
+
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:id="@+id/ivStarImage3"
+        tools:src="@drawable/yellowstarempty"
+        android:layout_below="@+id/Ratings"
+        android:layout_toRightOf="@+id/ivStarImage2"
+        android:layout_toEndOf="@+id/ivStarImage2" />
+
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:id="@+id/ivStarImage4"
+        tools:src="@drawable/yellowstarempty"
+        android:layout_below="@+id/Ratings"
+        android:layout_toRightOf="@+id/ivStarImage3"
+        android:layout_toEndOf="@+id/ivStarImage3" />
+
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:id="@+id/ivStarImage5"
+        tools:src="@drawable/yellowstarempty"
+        android:layout_below="@+id/Ratings"
+        android:layout_toRightOf="@+id/ivStarImage4"
+        android:layout_toEndOf="@+id/ivStarImage4" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:text="Tarzan, having acclimated to life in London, is called back to his former home in the jungle to investigate the activities at a mining encampment."
+        android:id="@+id/tvOverview"
+        android:textColor="#ffffff"
+        android:textSize="10sp"
+        android:layout_below="@+id/ivStarImage1"
+        android:layout_alignLeft="@+id/tvTitle"
+        android:layout_alignStart="@+id/tvTitle" />
+
+    </RelativeLayout>
+</ScrollView>
