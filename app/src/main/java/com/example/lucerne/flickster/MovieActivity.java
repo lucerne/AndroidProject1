@@ -6,6 +6,8 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.example.lucerne.flickster.adapters.MovieArrayAdapter;
@@ -70,6 +72,14 @@ public class MovieActivity extends AppCompatActivity {
 //         launchTrailerActivity();
         // Launch detailed view on click
 //        launchDetailedActivity(movie);
+
+        // Launch detailed view
+        lvItems.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                launchDetailedActivity(movies.get(position));
+            }
+        });
     }
 
 
@@ -114,7 +124,6 @@ public class MovieActivity extends AppCompatActivity {
         });
     }
 
-
     // ActivityOne.java
     public void launchTrailerActivity() {
         // first parameter is the context, second is the class of the activity to launch
@@ -134,6 +143,7 @@ public class MovieActivity extends AppCompatActivity {
         // put "extras" into the bundle for access in the second activity
         intent.putExtra("MovieDetails", movie);
         // brings up the second activity
+        Log.d("DEBUG", movies.toString());
         startActivity(intent);
     }
 }

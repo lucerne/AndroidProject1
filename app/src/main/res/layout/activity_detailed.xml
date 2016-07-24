@@ -7,6 +7,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="#000000"
     tools:context="com.example.lucerne.flickster.DetailedActivity">
 
     <ImageView
@@ -21,7 +22,7 @@
 
 
     <TextView
-        android:layout_width="match_parent"
+        android:layout_width="300dp"
         android:layout_height="50dp"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="The Legend of Tarzan"
@@ -29,8 +30,7 @@
         android:textColor="#ffffff"
         android:textSize="15sp"
         android:layout_below="@+id/ivMovieImage"
-        android:layout_alignRight="@+id/ivMovieImage"
-        android:layout_alignEnd="@+id/ivMovieImage" />
+        android:layout_centerHorizontal="true" />
 
     <TextView
         android:layout_width="match_parent"
