@@ -1,5 +1,7 @@
 package com.example.lucerne.flickster.models;
 
+import android.util.Log;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -22,6 +24,9 @@ public class Movie implements Serializable{
     String backdropPath;
     // rating of more than 5 is popular
     popularityValues popularity;
+    float voteAverage;
+    int voteCount;
+    String releaseDate;
 
     public String getOverview() {
         return overview;
@@ -43,15 +48,25 @@ public class Movie implements Serializable{
         return popularity;
     }
 
+    public float getVoteAverage() { return voteAverage; }
 
+    public int getVoteCount() { return voteCount; }
+
+    public String getReleaseDate() { return releaseDate; }
+
+    // set movie data
     public Movie(JSONObject jsonObject) throws JSONException{
         this.posterPath = jsonObject.getString("poster_path");
         this.originalTitle = jsonObject.getString("original_title");
         this.overview = jsonObject.getString("overview");
         this.backdropPath = jsonObject.getString("backdrop_path");
+        this.voteAverage = Float.parseFloat(jsonObject.getString("vote_average"));
+        this.voteCount = Integer.parseInt(jsonObject.getString("vote_count"));
+        this.releaseDate = jsonObject.getString("release_date");
 
-        float p = Float.parseFloat(jsonObject.getString("vote_average"));
-        if (p > 5){
+        Log.d("DEBUG movie.java", String.valueOf(this.voteAverage));
+        // set popularity
+        if (this.voteAverage > 5){
             this.popularity = popularityValues.POPULAR;
         }
         else{
@@ -59,6 +74,7 @@ public class Movie implements Serializable{
         }
     }
 
+    // convert json object into movies
     public static ArrayList<Movie> fromJSONArray(JSONArray array){
         ArrayList<Movie> results = new ArrayList<>();
 

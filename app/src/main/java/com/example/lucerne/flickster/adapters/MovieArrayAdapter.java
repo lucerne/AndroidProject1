@@ -122,8 +122,6 @@ public class MovieArrayAdapter extends ArrayAdapter<Movie> {
             // popular movie backdrop in portrait mode
             if (getItemViewType(position) == Movie.popularityValues.NOTPOPULAR.ordinal()){
                 Picasso.with(getContext()).load(movie.getPosterPath())
-//                        .fit()
-//                        .centerCrop()
                         .placeholder(R.drawable.placeholder)
                         .error(R.drawable.placeholder)
                         .resize(0, 600)
@@ -133,8 +131,6 @@ public class MovieArrayAdapter extends ArrayAdapter<Movie> {
             }
             else {
                 Picasso.with(getContext()).load(movie.getBackdropPath())
-//                        .fit()
-//                        .centerCrop()
                         .resize(0, 800)
                         .transform(new RoundedCornersTransformation(20, 10))
                         .placeholder(R.drawable.placeholder)

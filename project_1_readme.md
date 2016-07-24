@@ -10,19 +10,19 @@ The following **required** functionality is completed:
 
 * [x] User can **scroll through current movies** from the Movie Database API
 * [x] Layout is optimized with the [ViewHolder](http://guides.codepath.com/android/Using-an-ArrayAdapter-with-ListView#improving-performance-with-the-viewholder-pattern) pattern.
-* [x ] For each movie displayed, user can see the following details:
-  * [x ] Title, Poster Image, Overview (Portrait mode)
-  * [x ] Title, Backdrop Image, Overview (Landscape mode)
+* [x] For each movie displayed, user can see the following details:
+  * [x] Title, Poster Image, Overview (Portrait mode)
+  * [x] Title, Backdrop Image, Overview (Landscape mode)
 
 The following **optional** features are implemented:
 
-* [x ] User can **pull-to-refresh** popular stream to get the latest movies.
-* [x ] Display a nice default [placeholder graphic](http://guides.codepath.com/android/Displaying-Images-with-the-Picasso-Library#configuring-picasso) for each image during loading.
-* [ ] Improved the user interface through styling and coloring.
+* [x] User can **pull-to-refresh** popular stream to get the latest movies.
+* [x] Display a nice default [placeholder graphic](http://guides.codepath.com/android/Displaying-Images-with-the-Picasso-Library#configuring-picasso) for each image during loading.
+* [x] Improved the user interface through styling and coloring.
 
 The following **bonus** features are implemented:
 
-* [ ] Allow user to view details of the movie including ratings and popularity within a separate activity or dialog fragment.
+* [x] Allow user to view details of the movie including ratings and popularity within a separate activity or dialog fragment.
 * [x] When viewing a popular movie (i.e. a movie voted for more than 5 stars) the video should show the full backdrop image as the layout.  Uses [Heterogenous ListViews](http://guides.codepath.com/android/Implementing-a-Heterogenous-ListView) or [Heterogenous RecyclerView](http://guides.codepath.com/android/Heterogenous-Layouts-inside-RecyclerView) to show different layouts.
 * [ ] Allow video trailers to be played in full-screen using the YouTubePlayerView.
     * [ ] Overlay a play icon for videos that can be played.
@@ -34,7 +34,8 @@ The following **bonus** features are implemented:
 
 The following **additional** features are implemented:
 
-* [ ] List anything else that you can get done to improve the app functionality!
+* [x] List anything else that you can get done to improve the app functionality!
+Display additional details for the movie
 
 ## Video Walkthrough
 
@@ -55,7 +56,7 @@ Describe any challenges encountered while building the app.
 
 ## License
 
-    Copyright [yyyy] [name of copyright owner]
+    Copyright [2016] [Lulu Li]
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.

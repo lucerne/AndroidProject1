@@ -118,7 +118,8 @@ public class MovieActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
+            public void onFailure(int statusCode, Header[] headers, String responseString,
+                                  Throwable throwable) {
                 super.onFailure(statusCode, headers, responseString, throwable);
             }
         });
@@ -128,10 +129,6 @@ public class MovieActivity extends AppCompatActivity {
     public void launchTrailerActivity() {
         // first parameter is the context, second is the class of the activity to launch
         Intent i = new Intent(this, TrailerActivity.class);
-        // put "extras" into the bundle for access in the second activity
-        i.putExtra("username", "foobar");
-        i.putExtra("in_reply_to", "george");
-        i.putExtra("code", 400);
         // brings up the second activity
         startActivity(i);
     }
