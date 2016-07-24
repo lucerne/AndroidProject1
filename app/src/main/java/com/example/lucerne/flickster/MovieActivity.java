@@ -1,5 +1,6 @@
 package com.example.lucerne.flickster;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -65,6 +66,10 @@ public class MovieActivity extends AppCompatActivity {
 
         // initiate view
         fetchTimelineAsync(0);
+
+        // launchTrailerActivity();
+        // Launch detailed view on click
+//        launchDetailedActivity(movie);
     }
 
 
@@ -76,7 +81,7 @@ public class MovieActivity extends AppCompatActivity {
         return true;
     }
 
-
+    // Get and refresh data
     public void fetchTimelineAsync(int page) {
         String url = "https://api.themoviedb.org/3/movie/now_playing?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed";
 
@@ -109,4 +114,26 @@ public class MovieActivity extends AppCompatActivity {
         });
     }
 
+
+    // ActivityOne.java
+    public void launchTrailerActivity() {
+        // first parameter is the context, second is the class of the activity to launch
+        Intent i = new Intent(this, TrailerActivity.class);
+        // put "extras" into the bundle for access in the second activity
+        i.putExtra("username", "foobar");
+        i.putExtra("in_reply_to", "george");
+        i.putExtra("code", 400);
+        // brings up the second activity
+        startActivity(i);
+    }
+
+    // ActivityOne.java
+    public void launchDetailedActivity(Movie movie) {
+        // first parameter is the context, second is the class of the activity to launch
+        Intent intent = new Intent(this, DetailedActivity.class);
+        // put "extras" into the bundle for access in the second activity
+        intent.putExtra("MovieDetails", movie);
+        // brings up the second activity
+        startActivity(intent);
+    }
 }
