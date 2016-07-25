@@ -118,7 +118,12 @@ public class MovieArrayAdapter extends ArrayAdapter<Movie> {
             }
 
         } else if (orientation == Configuration.ORIENTATION_LANDSCAPE) {
-//            Picasso.with(getContext()).load(movie.getBackdropPath()).into(viewHolder.image);
+
+            viewHolder.title = (TextView) convertView.findViewById(R.id.tvTitle);
+            viewHolder.overview = (TextView) convertView.findViewById(R.id.tvOverview);
+            viewHolder.title.setText(movie.getOriginalTitle());
+            viewHolder.overview.setText(movie.getOverview());
+
             // popular movie backdrop in portrait mode
             if (getItemViewType(position) == Movie.popularityValues.NOTPOPULAR.ordinal()){
                 Picasso.with(getContext()).load(movie.getPosterPath())
