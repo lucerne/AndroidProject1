@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.Menu;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -69,9 +68,8 @@ public class MovieActivity extends AppCompatActivity {
         // initiate view
         fetchTimelineAsync(0);
 
-//         launchTrailerActivity();
-        // Launch detailed view on click
-//        launchDetailedActivity(movie);
+        // youtube
+        // launchTrailerActivity();
 
         // Launch detailed view
         lvItems.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -84,12 +82,12 @@ public class MovieActivity extends AppCompatActivity {
 
 
     // Menu icons are inflated just as they were with actionbar
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        // Inflate the menu; this adds items to the action bar if it is present.
+//        getMenuInflater().inflate(R.menu.menu_main, menu);
+//        return true;
+//    }
 
     // Get and refresh data
     public void fetchTimelineAsync(int page) {

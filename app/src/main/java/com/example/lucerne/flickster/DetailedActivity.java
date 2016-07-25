@@ -1,8 +1,10 @@
 package com.example.lucerne.flickster;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -26,6 +28,11 @@ public class DetailedActivity extends AppCompatActivity {
 
         movie = (Movie) getIntent().getSerializableExtra("MovieDetails");
         Log.d("DEBUG", movie.toString());
+
+        // show trailer for popular activities, then go back to detailed view
+        if (movie.getPopularity() == Movie.popularityValues.POPULAR) {
+            launchTrailerActivity(null);
+        }
 
         movieImage = (ImageView) findViewById(R.id.ivMovieImage);
         title = (TextView) findViewById(R.id.tvTitle);
@@ -85,5 +92,24 @@ public class DetailedActivity extends AppCompatActivity {
 
         voteCount.setText("(" + Integer.toString(movie.getVoteCount()) + ")");
         releaseDate.setText(movie.getReleaseDate());
+
+        // click image
+//        movieImage.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                // Do something here
+//                launchTrailerActivity();
+//            }
+//        });
     }
+
+    // ActivityOne.java
+    public void launchTrailerActivity(View view) {
+        // first parameter is the context, second is the class of the activity to launch
+        Intent i = new Intent(this, TrailerActivity.class);
+        // brings up the second activity
+        startActivity(i);
+    }
+
+
 }

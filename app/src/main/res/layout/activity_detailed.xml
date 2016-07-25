@@ -10,16 +10,35 @@
     android:background="#000000"
     tools:context="com.example.lucerne.flickster.DetailedActivity">
 
+    <!--<ImageView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="200dp"-->
+        <!--android:id="@+id/ivMovieImage"-->
+        <!--android:layout_alignParentTop="true"-->
+        <!--android:layout_alignParentLeft="true"-->
+        <!--android:layout_alignParentStart="true"-->
+        <!--tools:src="@drawable/placeholder"-->
+        <!--android:layout_margin="10dp" />-->
+
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:id="@+id/ivMovieImage"
-        android:layout_alignParentTop="true"
+        tools:src="@drawable/placeholder"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        tools:src="@drawable/placeholder"
-        android:layout_margin="10dp" />
+        android:onClick="launchTrailerActivity"/>
 
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:scaleType="fitXY"
+        android:id="@+id/ivplayImage"
+        android:src="@drawable/playwhite"
+        android:layout_alignBottom="@+id/ivMovieImage"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="47dp" />
 
     <TextView
         android:layout_width="300dp"
@@ -130,7 +149,8 @@
         android:textSize="10sp"
         android:layout_below="@+id/ivStarImage1"
         android:layout_alignLeft="@+id/tvTitle"
-        android:layout_alignStart="@+id/tvTitle" />
+        android:layout_alignStart="@+id/tvTitle"
+        android:paddingRight="40dp"/>
 
 
 </RelativeLayout>
