@@ -34,12 +34,6 @@ public class MovieActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_movie);
 
-        // Find the toolbar view inside the activity layout
-//        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-
-        // Sets the Toolbar to act as the ActionBar for this Activity window.
-//        setSupportActionBar(toolbar);
-
         // initiate adapter
         lvItems = (ListView) findViewById(R.id.lvMovies);
         movies = new ArrayList<>();
@@ -75,7 +69,13 @@ public class MovieActivity extends AppCompatActivity {
         lvItems.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                launchDetailedActivity(movies.get(position));
+                Movie m = movies.get(position);
+                if (m.getPopularity() == Movie.popularityValues.NOTPOPULAR) {
+                    launchDetailedActivity(m);
+                }
+                else {
+                    launchTrailerActivity(m);
+                }
             }
         });
     }
@@ -124,11 +124,14 @@ public class MovieActivity extends AppCompatActivity {
     }
 
     // ActivityOne.java
-    public void launchTrailerActivity() {
+    public void launchTrailerActivity(Movie movie) {
         // first parameter is the context, second is the class of the activity to launch
-        Intent i = new Intent(this, TrailerActivity.class);
+        Intent intent = new Intent(this, TrailerActivity.class);
+        // put "extras" into the bundle for access in the second activity
+        intent.putExtra("MovieDetails", movie);
         // brings up the second activity
-        startActivity(i);
+        Log.d("DEBUG", movies.toString());
+        startActivity(intent);
     }
 
     // ActivityOne.java

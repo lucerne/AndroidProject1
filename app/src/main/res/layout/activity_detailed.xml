@@ -10,24 +10,13 @@
     android:background="#000000"
     tools:context="com.example.lucerne.flickster.DetailedActivity">
 
-    <!--<ImageView-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="200dp"-->
-        <!--android:id="@+id/ivMovieImage"-->
-        <!--android:layout_alignParentTop="true"-->
-        <!--android:layout_alignParentLeft="true"-->
-        <!--android:layout_alignParentStart="true"-->
-        <!--tools:src="@drawable/placeholder"-->
-        <!--android:layout_margin="10dp" />-->
-
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:id="@+id/ivMovieImage"
         tools:src="@drawable/placeholder"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:onClick="launchTrailerActivity"/>
+        android:layout_alignParentStart="true" />
 
 
     <ImageView

@@ -27,6 +27,8 @@ public class Movie implements Serializable{
     float voteAverage;
     int voteCount;
     String releaseDate;
+    String id;
+    String source;
 
     public String getOverview() {
         return overview;
@@ -54,6 +56,12 @@ public class Movie implements Serializable{
 
     public String getReleaseDate() { return releaseDate; }
 
+    public String getId() { return id; }
+
+    public String getSource() { return source; }
+
+
+
     // set movie data
     public Movie(JSONObject jsonObject) throws JSONException{
         this.posterPath = jsonObject.getString("poster_path");
@@ -63,6 +71,7 @@ public class Movie implements Serializable{
         this.voteAverage = Float.parseFloat(jsonObject.getString("vote_average"));
         this.voteCount = Integer.parseInt(jsonObject.getString("vote_count"));
         this.releaseDate = jsonObject.getString("release_date");
+        this.id=jsonObject.getString("id");
 
         Log.d("DEBUG movie.java", String.valueOf(this.voteAverage));
         // set popularity

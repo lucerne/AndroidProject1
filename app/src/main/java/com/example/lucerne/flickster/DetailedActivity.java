@@ -30,8 +30,11 @@ public class DetailedActivity extends AppCompatActivity {
         Log.d("DEBUG", movie.toString());
 
         // show trailer for popular activities, then go back to detailed view
+        // problem after installing youtube on device, when launchtraileractivity
+        // gets stuck in landscape mode, the code after this if statement does not
+        // execute.
         if (movie.getPopularity() == Movie.popularityValues.POPULAR) {
-            launchTrailerActivity(null);
+            launchTrailerActivity(movie);
         }
 
         movieImage = (ImageView) findViewById(R.id.ivMovieImage);
@@ -94,22 +97,23 @@ public class DetailedActivity extends AppCompatActivity {
         releaseDate.setText(movie.getReleaseDate());
 
         // click image
-//        movieImage.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                // Do something here
-//                launchTrailerActivity();
-//            }
-//        });
+        movieImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Do something here
+                launchTrailerActivity(movie);
+            }
+        });
     }
 
     // ActivityOne.java
-    public void launchTrailerActivity(View view) {
+    public void launchTrailerActivity(Movie movie) {
         // first parameter is the context, second is the class of the activity to launch
-        Intent i = new Intent(this, TrailerActivity.class);
+        Intent intent = new Intent(this, TrailerActivity.class);
+        // put "extras" into the bundle for access in the second activity
+        intent.putExtra("MovieDetails", movie);
         // brings up the second activity
-        startActivity(i);
+        Log.d("DEBUG", movie.toString());
+        startActivity(intent);
     }
-
-
 }
